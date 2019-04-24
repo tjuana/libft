@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjuana <tjuana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 18:56:26 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/11 19:18:07 by tjuana           ###   ########.fr       */
+/*   Updated: 2019/04/19 14:12:32 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define ABS(value)  ((value) < 0 ? (value * -1) : value)
 # include <string.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef unsigned char	t_byte;
 typedef struct		s_list
@@ -31,7 +31,7 @@ int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strdup(const char *s1);
 size_t				ft_strlen(const char *s);
-char				*ft_strstr(const char *haystack, const char *needle);
+char				*ft_strstr(const char *hay, const char *ne);
 int					ft_islower(int c);
 int					ft_isupper(int c);
 int					ft_tolower(int c);
@@ -86,5 +86,8 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int					ft_iswsp(char const c);
+int					ft_count_words(char const *s, int i, char c);
+void				ft_swap(int *a, int *b);
 
 #endif

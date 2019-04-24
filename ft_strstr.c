@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjuana <tjuana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 20:01:05 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/07 17:57:51 by tjuana           ###   ########.fr       */
+/*   Updated: 2019/04/20 18:21:24 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char	*ft_strstr(const char *hey, const char *ne)
 {
 	int is;
 	int itf;
 
 	is = 0;
 	itf = 0;
-	if (needle[0] == '\0')
-		return ((char*)haystack);
-	while (haystack[is] != '\0')
+	if (*ne == '\0')
+		return ((char*)hey);
+	while (*(hey + is) != '\0')
 	{
 		itf = 0;
-		while (haystack[is + itf] != '\0' && haystack[is + itf] == needle[itf])
+		while (*(hey + is + itf) != '\0' && *(hey + is + itf) == *(ne + itf))
 		{
-			if (needle[itf + 1] == '\0')
-				return ((char*)&haystack[is]);
+			if (*(ne + itf + 1) == '\0')
+				return ((char*)hey + is);
 			itf++;
 		}
 		is++;

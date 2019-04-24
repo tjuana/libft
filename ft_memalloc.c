@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjuana <tjuana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:32:22 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/08 13:47:22 by tjuana           ###   ########.fr       */
+/*   Updated: 2019/04/17 15:15:32 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void *str;
+	char *str;
 
 	if (!(str = malloc(size)))
 		return (NULL);

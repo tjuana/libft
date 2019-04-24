@@ -6,26 +6,11 @@
 /*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 16:20:21 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/09 19:05:22 by tjuana           ###   ########.fr       */
+/*   Updated: 2019/04/14 13:46:32 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_count_words(char const *s, int i, char c)
-{
-	while (*s == c)
-		s++;
-	while (*s)
-	{
-		while (*s && *s != c)
-			s++;
-		while (*s == c)
-			s++;
-		i++;
-	}
-	return (i);
-}
 
 static int	ft_fwords(char const *s, int i, char c, char **res)
 {
@@ -43,7 +28,14 @@ static int	ft_fwords(char const *s, int i, char c, char **res)
 		l++;
 	if (l > 0)
 	{
-		res[i] = ft_strnew(l);
+		if ((res[i] = ft_strnew(l)) == NULL)
+		{
+			while (--i >= 0)
+			{
+				ft_strdel(&res[i]);
+			}
+			return (0);
+		}
 		ft_strncpy(res[i], s, l);
 	}
 	return (j + l);
@@ -66,6 +58,12 @@ char		**ft_strsplit(char const *s, char c)
 	while (*s)
 	{
 		l = ft_fwords(s, i++, c, res);
+		if (l == 0)
+		{
+			free(res);
+			res = NULL;
+			return (NULL);
+		}
 		s += l;
 	}
 	res[cw] = 0;

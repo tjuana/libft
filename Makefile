@@ -3,12 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tjuana <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: tjuana <tjuana@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/03 18:51:09 by tjuana            #+#    #+#              #
-#    Updated: 2019/04/11 19:17:48 by tjuana           ###   ########.fr        #
+#    Updated: 2019/04/24 15:50:08 by tjuana           ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** 
+# **************************************************************************** #
 
 NAME = libft.a
 
@@ -24,7 +24,7 @@ SRCS = ft_putchar.c ft_putchar_fd.c ft_atoi.c ft_strcmp.c ft_strdup.c \
 		ft_putnbr.c ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c ft_putendl.c \
 		ft_putendl_fd.c ft_strtrim.c ft_strsplit.c ft_itoa.c ft_strrev.c \
 		ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c ft_iswsp.c ft_count_words.c ft_swap.c
 
 
 OBJECTS = ft_putchar.o ft_putchar_fd.o ft_atoi.o ft_strcmp.o ft_strdup.o \
@@ -39,7 +39,7 @@ OBJECTS = ft_putchar.o ft_putchar_fd.o ft_atoi.o ft_strcmp.o ft_strdup.o \
 		ft_putnbr.o ft_putnbr_fd.o ft_putstr.o ft_putstr_fd.o ft_putendl.o \
 		ft_putendl_fd.o ft_strtrim.o ft_strsplit.o ft_itoa.o ft_strrev.o \
 		ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o \
-		ft_lstmap.o
+		ft_lstmap.o ft_iswsp.o ft_count_words.o ft_swap.o
 
 
 INCLUDES=./
@@ -48,7 +48,7 @@ INCLUDES=./
 
 all: $(NAME)
 
-$(NAME): $(SRCS) libft.h
+$(NAME): $(SRCS) libft.h get_next_line.h
 	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)

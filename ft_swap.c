@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjuana <tjuana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/16 15:18:51 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/12 17:22:01 by tjuana           ###   ########.fr       */
+/*   Created: 2019/04/14 13:06:36 by tjuana            #+#    #+#             */
+/*   Updated: 2019/04/20 19:12:19 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(int c, int fd)
+void	ft_swap(int *a, int *b)
 {
-	write(fd, &c, 1);
+	int	sw;
+
+	sw = *a;
+	*a = *b;
+	*b = sw;
 }

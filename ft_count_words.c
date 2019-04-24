@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/16 15:18:51 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/12 17:22:01 by tjuana           ###   ########.fr       */
+/*   Created: 2019/04/12 15:09:35 by tjuana            #+#    #+#             */
+/*   Updated: 2019/04/13 13:16:35 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(int c, int fd)
+int	ft_count_words(char const *s, int i, char c)
 {
-	write(fd, &c, 1);
+	while (*s == c)
+		s++;
+	while (*s)
+	{
+		while (*s && *s != c)
+			s++;
+		while (*s == c)
+			s++;
+		i++;
+	}
+	return (i);
 }

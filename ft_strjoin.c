@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjuana <tjuana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 19:03:10 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/09 16:05:42 by tjuana           ###   ########.fr       */
+/*   Updated: 2019/04/17 14:18:57 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,20 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	size;
-	char	*res;
+	size_t			size;
+	char			*res;
+	unsigned int	i;
 
-	if (s1 && s2)
-		size = (size_t)(ft_strlen((s1) + ft_strlen(s2)));
-	else if (s1)
-		size = (size_t)(ft_strlen(s1));
-	else if (s2)
-		size = (size_t)(ft_strlen(s2));
-	else
+	i = 0;
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	if (!(res = ft_memalloc(size)))
+	size = (ft_strlen(s1) + ft_strlen(s2));
+	if (!(res = (char*)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	if (s1)
-		res = ft_strcpy(res, s1);
-	else
-		res = ft_strcpy(res, s2);
-	if (s1 && s2)
-		res = ft_strcat(res, s2);
+	while (*s1 != '\0')
+		res[i++] = *s1++;
+	while (*s2 != '\0')
+		res[i++] = *s2++;
+	res[i] = '\0';
 	return (res);
 }

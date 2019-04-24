@@ -6,7 +6,7 @@
 /*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 12:59:03 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/11 18:45:14 by tjuana           ###   ########.fr       */
+/*   Updated: 2019/04/14 13:06:40 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,4 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	list->next = NULL;
 	return (list);
-}
-int	main(void)
-{
-	t_list	*list;
-	int 	ft;
-
-	ft = 42;
-	list = ft_lstnew(&ft, sizeof(int));
-	if (!!list)
-	{
-		if ((*(int*)(list->content)) == 42)
-		{
-			list = ft_lstnew(NULL, 386);
-			if ((list->content_size) == 0)
-			{
-				printf("OKAY! =D\n");
-				return (0);;
-			}
-		}
-	}
-	printf("FAILED!\n");
-	return (0);
 }

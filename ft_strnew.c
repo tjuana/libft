@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjuana <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tjuana <tjuana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 14:13:03 by tjuana            #+#    #+#             */
-/*   Updated: 2019/04/11 19:25:35 by tjuana           ###   ########.fr       */
+/*   Updated: 2019/04/23 12:47:39 by tjuana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,7 @@
 
 char	*ft_strnew(size_t size)
 {
-	size_t		i;
-	char		*s;
-
-	i = 0;
-	if (!(s = ft_memalloc(size + 1)))
+	if (size + 1 < size)
 		return (NULL);
-	while (i < size)
-	{
-		s[i] = '\0';
-		i++;
-	}
-	return (s);
+	return ((char *)ft_memalloc(size + 1));
 }
